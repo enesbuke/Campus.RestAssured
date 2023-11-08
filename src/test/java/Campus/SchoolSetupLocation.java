@@ -1,18 +1,12 @@
 package Campus;
 
 import Utilities.Utility;
-import com.github.javafaker.Faker;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
-import io.restassured.http.Cookies;
-import io.restassured.specification.RequestSpecification;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.baseURI;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -24,7 +18,6 @@ public class SchoolSetupLocation extends Utility {
     String SSName;
     String SSShortName;
     String SSCapacity;
-
 
     @Test
     public void createSchoolSetupLocation() {
@@ -56,8 +49,8 @@ public class SchoolSetupLocation extends Utility {
                         .then()
                         .log().body()
                         .statusCode(201)
-                        .extract().path("id");
-
+                        .extract().path("id")
+        ;
         System.out.println("LocationID = " + SSID);
     }
 
