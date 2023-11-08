@@ -63,7 +63,7 @@ public class HR_Positions {
         newPositions.put("name", positionsName);
         newPositions.put("shortName", positionsShort);
         newPositions.put("tenantId", "646cb816433c0f46e7d44cb0");
-        newPositions.put("active", "true");
+        newPositions.put("active", "true") ;
 
         positionsID =
                 given()
