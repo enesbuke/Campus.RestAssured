@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class SchoolSetupLocation extends Utility {
 
-    Map <String, String> SSLocation = new HashMap<>();
+    Map<String, String> SSLocation = new HashMap<>();
 
     String SSID;
     String SSName;
@@ -86,7 +86,7 @@ public class SchoolSetupLocation extends Utility {
     public void updateSchoolSetupLocation() {
 
         SSLocation.put("id", SSID);
-        SSName = ("Team8" + f.number().digits(1));
+        SSName = ("Team8" + rndProd.number().digits(1));
         SSLocation.put("name", SSName);
         SSLocation.put("shortName", SSShortName);
 

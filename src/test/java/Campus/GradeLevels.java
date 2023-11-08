@@ -8,15 +8,17 @@ import io.restassured.http.Cookies;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import java.util.HashMap;
 import java.util.Map;
+
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 
 public class GradeLevels extends Utility {
 
-    Map<String, String> gLevel= new HashMap<>();
+    Map<String, String> gLevel = new HashMap<>();
 
     String GLevelID;
     String GLevelName;

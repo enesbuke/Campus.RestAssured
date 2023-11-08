@@ -10,20 +10,20 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
+
 import com.github.javafaker.Faker;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
-
 public class HR_Positions extends Utility {
 
     Map<String, String> newPositions = new HashMap<>();
 
-    String positionsID= " ";
-    String positionsName= " ";
-    String positionsShort= " ";
+    String positionsID = " ";
+    String positionsName = " ";
+    String positionsShort = " ";
 
 
     @Test
@@ -51,7 +51,7 @@ public class HR_Positions extends Utility {
                         .log().body()
                         .statusCode(201)
                         .extract().path("id");
-       ;
+        ;
     }
 
     @Test(dependsOnMethods = "createPositions")
