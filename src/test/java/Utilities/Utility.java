@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 
 public class Utility {
     public Faker rndProd = new Faker();
-    public static RequestSpecification reqSpec;
+    public RequestSpecification reqSpec;
 
     @BeforeClass
     public void Setup() {
@@ -32,11 +32,13 @@ public class Utility {
                         .when()
                         .post("/auth/login")
                         .then()
-                        .log().body()
+                        //.log().body()
                         .statusCode(200)
                         .extract().response().getDetailedCookies();
 
-        reqSpec = new RequestSpecBuilder().addCookies(cookies).setContentType(ContentType.JSON).build();
+        reqSpec = new RequestSpecBuilder().
+                addCookies(cookies).setContentType(ContentType.JSON)
+                .build();
 
     }
 

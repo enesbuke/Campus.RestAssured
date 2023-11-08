@@ -1,26 +1,18 @@
 package Campus;
 
 import Utilities.Utility;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
-import io.restassured.http.Cookies;
-import io.restassured.specification.RequestSpecification;
-import org.testng.annotations.BeforeClass;
+
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-import com.github.javafaker.Faker;
 
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class HR_Positions extends Utility {
-
     Map<String, String> newPositions = new HashMap<>();
-
     String positionsID = " ";
     String positionsName = " ";
     String positionsShort = " ";
@@ -51,7 +43,6 @@ public class HR_Positions extends Utility {
                         .log().body()
                         .statusCode(201)
                         .extract().path("id");
-        ;
     }
 
     @Test(dependsOnMethods = "createPositions")

@@ -1,29 +1,20 @@
 package Campus;
 
 import Utilities.Utility;
-import com.github.javafaker.Faker;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
-import io.restassured.http.Cookies;
-import io.restassured.specification.RequestSpecification;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 
 public class GradeLevels extends Utility {
-
     Map<String, String> gLevel = new HashMap<>();
 
     String GLevelID;
     String GLevelName;
     String GLevelShortName;
-
 
     @Test
     public void createGradeLevel() {
@@ -50,11 +41,9 @@ public class GradeLevels extends Utility {
                         .then()
                         .log().body()
                         .statusCode(201)
-                        .extract().path("id");
-
-
+                        .extract().path("id")
+        ;
     }
-
 
     @Test(dependsOnMethods = "createGradeLevel")
     public void createGradeLevelNegative() {
@@ -74,7 +63,6 @@ public class GradeLevels extends Utility {
                 .then()
                 .log().body()
                 .statusCode(400)
-
         ;
     }
 
@@ -97,9 +85,7 @@ public class GradeLevels extends Utility {
                 .then()
                 .log().body()
                 .statusCode(200)
-
         ;
-
     }
 
     @Test(dependsOnMethods = "updateGradeLevel")
@@ -135,7 +121,6 @@ public class GradeLevels extends Utility {
                 .then()
                 .log().body()
                 .statusCode(400)
-
         ;
     }
 }
