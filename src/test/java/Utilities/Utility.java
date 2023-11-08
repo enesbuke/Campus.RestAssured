@@ -14,19 +14,19 @@ import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 public class Utility {
-    public Faker rndProd=new Faker();
+    public Faker rndProd = new Faker();
     public static RequestSpecification reqSpec;
 
-       @BeforeClass
-    public void Setup(){
-        baseURI="https://test.mersys.io/";
+    @BeforeClass
+    public void Setup() {
+        baseURI = "https://test.mersys.io/";
 
-        Map<String,String> loginMap=new HashMap<>();
-        loginMap.put("username","turkeyts");
-        loginMap.put("password","TechnoStudy123");
-        loginMap.put("rememberMe","true");
+        Map<String, String> loginMap = new HashMap<>();
+        loginMap.put("username", "turkeyts");
+        loginMap.put("password", "TechnoStudy123");
+        loginMap.put("rememberMe", "true");
 
-        Cookies cookies=
+        Cookies cookies =
                 given()
                         .body(loginMap).contentType(ContentType.JSON)
                         .when()
@@ -34,10 +34,9 @@ public class Utility {
                         .then()
                         .log().body()
                         .statusCode(200)
-                        .extract().response().getDetailedCookies()
-                ;
+                        .extract().response().getDetailedCookies();
 
-        reqSpec=new RequestSpecBuilder().addCookies(cookies).setContentType(ContentType.JSON).build();
+        reqSpec = new RequestSpecBuilder().addCookies(cookies).setContentType(ContentType.JSON).build();
 
     }
 
