@@ -1,5 +1,6 @@
 package Campus;
 
+import Utilities.Utility;
 import com.github.javafaker.Faker;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -15,7 +16,7 @@ import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class SchoolSetupLocation {
+public class SchoolSetupLocation extends Utility {
 
     Faker f = new Faker();
     RequestSpecification reqSpec;
@@ -26,33 +27,6 @@ public class SchoolSetupLocation {
     String SSShortName;
     String SSCapacity;
 
-    @BeforeClass
-    public void Setup() {
-
-        baseURI = "https://test.mersys.io/";
-
-        Map<String, String> userCredential = new HashMap<>();
-        userCredential.put("username", "turkeyts");
-        userCredential.put("password", "TechnoStudy123");
-        userCredential.put("rememberMe", "true");
-
-        Cookies cookies =
-                given()
-                        .contentType(ContentType.JSON)
-                        .body(userCredential)
-
-                        .when()
-                        .post("/auth/login")
-
-                        .then()
-                        .statusCode(200)
-                        .extract().response().getDetailedCookies();
-
-        reqSpec = new RequestSpecBuilder()
-                .addCookies(cookies)
-                .setContentType(ContentType.JSON)
-                .build();
-    }
 
     @Test
     public void createSchoolSetupLocation() {
