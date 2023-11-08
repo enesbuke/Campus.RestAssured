@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 
 public class GradeLevels {
 
-    Faker f = new Faker();
+    Faker f = new Faker() ;
     RequestSpecification reqSpec;
     Map<String, String> gLevel= new HashMap<>();
 

@@ -53,6 +53,7 @@ public class SchoolSetupLocation {
                 .setContentType(ContentType.JSON)
                 .build();
     }
+
     @Test
     public void createSchoolSetupLocation() {
 
