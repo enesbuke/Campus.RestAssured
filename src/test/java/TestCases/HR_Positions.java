@@ -1,4 +1,4 @@
-package Campus;
+package TestCases;
 
 import Utilities.Utility;
 
