@@ -16,8 +16,6 @@ import static io.restassured.RestAssured.given;
 
 public class GradeLevels extends Utility {
 
-    Faker f = new Faker() ;
-    RequestSpecification reqSpec;
     Map<String, String> gLevel= new HashMap<>();
 
     String GLevelID;
@@ -29,8 +27,8 @@ public class GradeLevels extends Utility {
     public void createGradeLevel() {
 
         gLevel = new HashMap<>();
-        GLevelName = f.name().firstName() + f.number().digits(1);
-        GLevelShortName = f.name().lastName() + f.number().digits(1);
+        GLevelName = rndProd.name().firstName() + rndProd.number().digits(1);
+        GLevelShortName = rndProd.name().lastName() + rndProd.number().digits(1);
 
         gLevel.put("name", GLevelName);
         gLevel.put("shortName", GLevelShortName);
@@ -82,7 +80,7 @@ public class GradeLevels extends Utility {
     public void updateGradeLevel() {
 
         gLevel.put("id", GLevelID);
-        GLevelName = ("Team8" + f.number().digits(1));
+        GLevelName = ("Team8" + rndProd.number().digits(1));
         gLevel.put("name", GLevelShortName);
         gLevel.put("shortName", GLevelShortName);
 

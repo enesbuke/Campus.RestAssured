@@ -19,8 +19,6 @@ import java.util.Map;
 
 public class HR_Positions extends Utility {
 
-    Faker f = new Faker();
-    RequestSpecification reqSpec;
     Map<String, String> newPositions = new HashMap<>();
 
     String positionsID= " ";
@@ -31,8 +29,8 @@ public class HR_Positions extends Utility {
     @Test
     public void createPositions() {
 
-        positionsName = "cobidik" + f.number().digits(1);
-        positionsShort = "cobidik" + f.number().digits(1);
+        positionsName = "cobidik" + rndProd.number().digits(1);
+        positionsShort = "cobidik" + rndProd.number().digits(1);
 
         newPositions.put("name", positionsName);
         newPositions.put("shortName", positionsShort);
@@ -80,7 +78,7 @@ public class HR_Positions extends Utility {
 
         newPositions.put("id", positionsID);
 
-        positionsName = ("Sinem" + f.number().digits(1));
+        positionsName = ("Sinem" + rndProd.number().digits(1));
         newPositions.put("name", positionsName);
         newPositions.put("shortName", positionsShort);
 

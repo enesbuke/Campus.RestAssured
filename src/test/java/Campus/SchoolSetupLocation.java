@@ -18,8 +18,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class SchoolSetupLocation extends Utility {
 
-    Faker f = new Faker();
-    RequestSpecification reqSpec;
     Map <String, String> SSLocation = new HashMap<>();
 
     String SSID;
@@ -33,9 +31,9 @@ public class SchoolSetupLocation extends Utility {
 
         SSLocation = new HashMap<>();
 
-        SSName = f.name().firstName() + f.number().digits(1);
-        SSShortName = f.name().lastName() + f.number().digits(1);
-        SSCapacity = f.number().digits(1);
+        SSName = rndProd.name().firstName() + rndProd.number().digits(1);
+        SSShortName = rndProd.name().lastName() + rndProd.number().digits(1);
+        SSCapacity = rndProd.number().digits(1);
 
         SSLocation.put("name", SSName);
         SSLocation.put("shortName", SSShortName);
