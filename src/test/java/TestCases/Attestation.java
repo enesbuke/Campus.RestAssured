@@ -64,7 +64,7 @@ public class Attestation extends Utility {
                 .log().body()
                 .contentType(ContentType.JSON)
                 .statusCode(200)
-                .body("name",equalTo("team8"));
+                .body("name", equalTo("team8"));
     }
 
     @Test(dependsOnMethods = "UpdateAttestations")

@@ -5,8 +5,13 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
 import io.restassured.specification.RequestSpecification;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.testng.annotations.BeforeClass;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,12 +23,23 @@ public class Utility {
     public RequestSpecification reqSpec;
 
     @BeforeClass
-    public void Setup() {
+    public void Setup() throws IOException {
+
+        String path = "src/test/java/Utilities/LoginDataT.xlsx";
+        FileInputStream inputStream = new FileInputStream(path);
+        Workbook workbook = WorkbookFactory.create(inputStream);
+        Sheet sheet = workbook.getSheetAt(0);
+
+        String username = sheet.getRow(0).getCell(0).toString();
+        String password = sheet.getRow(0).getCell(1).toString();
+        inputStream.close();
+
         baseURI = "https://test.mersys.io/";
 
+
         Map<String, String> loginMap = new HashMap<>();
-        loginMap.put("username", "turkeyts");
-        loginMap.put("password", "TechnoStudy123");
+        loginMap.put("username", username);
+        loginMap.put("password", password);
         loginMap.put("rememberMe", "true");
 
         Cookies cookies =

@@ -38,44 +38,42 @@ public class Discount extends Utility {
 
     }
 
-        @Test(dependsOnMethods = "createDiscount")
-                public void editDiscount() {
+    @Test(dependsOnMethods = "createDiscount")
+    public void editDiscount() {
 
-            newDiscount.put("id", discountID);
-            newDiscount.put("description", "study3");
-            newDiscount.put("code", "2");
-            newDiscount.put("active", "true");
-            newDiscount.put("priority", "20");
+        newDiscount.put("id", discountID);
+        newDiscount.put("description", "study3");
+        newDiscount.put("code", "2");
+        newDiscount.put("active", "true");
+        newDiscount.put("priority", "20");
 
-            given()
-                    .spec(reqSpec)
-                    .body(newDiscount)
-                    .when()
-                    .put("school-service/api/discounts")
-                    .then()
-                    .log().body()
-                    .statusCode(200);
+        given()
+                .spec(reqSpec)
+                .body(newDiscount)
+                .when()
+                .put("school-service/api/discounts")
+                .then()
+                .log().body()
+                .statusCode(200);
 
-        }
-
-
+    }
 
 
-      @Test(dependsOnMethods ="editDiscount")
+    @Test(dependsOnMethods = "editDiscount")
 
-      public void deleteDiscount(){
+    public void deleteDiscount() {
 
 
         given()
                 .spec(reqSpec)
                 .when()
-                .delete("/school-service/api/discounts/"+discountID)
+                .delete("/school-service/api/discounts/" + discountID)
                 .then()
                 .statusCode(200);
-      }
-
-
     }
+
+
+}
 
 
 
