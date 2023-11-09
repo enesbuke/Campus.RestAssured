@@ -16,7 +16,6 @@ import static org.hamcrest.Matchers.*;
 public class Nationalities extends Utility {
 
 
-
     public String nationalityName = "";
     String nationalityID = "";
 

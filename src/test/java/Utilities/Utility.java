@@ -32,7 +32,6 @@ public class Utility {
                         .when()
                         .post("/auth/login")
                         .then()
-                        //.log().body()
                         .statusCode(200)
                         .extract().response().getDetailedCookies();
 
